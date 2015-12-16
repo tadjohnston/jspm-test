@@ -1,0 +1,48 @@
+doctype html
+= render 'layouts/head'
+= render 'layouts/meta_tags'
+
+body
+  .navbar.navbar-default.navbar-fixed-top
+    .container
+      .navbar-header
+        a.navbar-brand href="/"
+          | Brew Club Membership
+          i.fa.fa-camera-retro
+        button.navbar-toggle.mobile-menu type="button" data-toggle="collapse" data-target="#navbar-main"
+          span.icon-bar
+          span.icon-bar
+          span.icon-bar
+      #navbar-main.navbar-collapse.collapse
+        ul.nav.navbar-nav
+          li.dropdown
+            a.dropdown-toggle data-toggle="dropdown" href="#" id="themes"
+              | Admin
+              span.caret
+            ul.dropdown-menu aria-labelledby="themes"
+              li
+                a tabindex="-1" href="/" Default
+              li.divider
+              li
+                a tabindex="-1" href="#/" Item 1
+              li
+                a tabindex="-1" href="#/" Item 2
+              li
+                a tabindex="-1" href="#/" Item 3
+              li
+                a tabindex="-1" href="#/" Item 4
+              li
+                a tabindex="-1" href="#/" Item 5
+              li
+                a tabindex="-1" href="#/" Item 6
+          li
+            a href="" Help
+
+        ul.nav.navbar-nav.navbar-right
+
+
+  .container
+    #banner.page-header
+      .row
+        = render 'layouts/messages'
+      = yield

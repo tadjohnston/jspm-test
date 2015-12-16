@@ -1,0 +1,15 @@
+*.log
+*.sql
+*.swp
+.bundle/
+.DS_Store
+.ruby-gemset
+.rvmrc
+node_modules/
+spec/vcr/
+tags
+tmp/
+*.gem
+vendor/
+public/js/jspm_packages
+
