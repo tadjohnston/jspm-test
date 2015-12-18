@@ -1,46 +1,63 @@
-source 'https://rubygems.org'
+source_rubygems = 'https://rubygems.org'
 
+ruby File.read(File.join(File.dirname(__FILE__), '.ruby-version')).strip
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.4'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-# Use SCSS for stylesheets
-gem 'sass-rails', '~> 5.0'
-# Use Uglifier as compressor for JavaScript assets
-gem 'uglifier', '>= 1.3.0'
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.1.0'
-# See https://github.com/rails/execjs#readme for more supported runtimes
-# gem 'therubyracer', platforms: :ruby
-
-# Use jquery as the JavaScript library
-gem 'jquery-rails'
-# Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
-gem 'jbuilder', '~> 2.0'
-# bundle exec rake doc:rails generates the API under doc/api.
-gem 'sdoc', '~> 0.4.0', group: :doc
-gem 'unicorn-rails'
-gem 'slim-rails'
-
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
+source source_rubygems do
+  gem 'activerecord_any_of'
+  gem 'activerecord-import'
+  gem 'activerecord-rescue_from_duplicate', '~> 0.0.7'
+  gem 'activerecord-session_store', '~>0.1.1'
+  gem 'activeresource', '~>4.0.0'
+  gem 'dotenv-rails', :require => 'dotenv/rails-now'
+  gem 'environs'
+  gem 'ffi'
+  gem 'httpclient', '~> 2.6.0.1'
+  gem 'mysql2', '~> 0.3.17'
+  gem 'ops', '~> 0.4.0'
+  gem 'rails', '4.2.4'
+  gem 'rabl', '~> 0.8'
+  gem 'rails-api', '~> 0.4.0', require: 'rails-api/action_controller/api'
+  gem 'sass-rails', '~> 5.0'
+  gem 'slim-rails'
+  gem 'turbolinks'
+  gem 'uglifier', '>= 1.3.0'
+  gem 'unicorn-rails'
+end
 
 group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
+  source source_rubygems do
+    gem 'pry'
+    gem 'pry-byebug'
+    gem 'pry-remote'
+    gem 'guard-rails', '~> 0.7.2'
+    gem 'guard-unicorn', '~>0.1.3'
+    gem 'guard-bundler', '~>2.1.0'
+  end
+end
+
+group :test do
+  source source_rubygems do
+    gem 'api_matchers'
+    gem 'rspec'
+    gem 'rspec-rails', '>= 2.13.2'
+    gem 'rspec-collection_matchers'
+    gem 'shoulda'
+    gem 'shoulda-matchers'
+    gem 'timecop'
+  end
 end
 
 group :development do
-  # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console', '~> 2.0'
-
-  # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring'
+  source source_rubygems do
+    gem 'guard-rspec'
+    gem 'sextant'
+    gem 'spring'
+  end
 end
 
+group :deploy, :development do
+  source source_rubygems do
+    gem 'capistrano',     '~> 2.15.5'
+    gem 'capistrano-ext', '~> 1.2.1'
+  end
+end

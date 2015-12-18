@@ -11,5 +11,6 @@ tags
 tmp/
 *.gem
 vendor/
-public/js/jspm_packages
+app/assets/javascripts/jspm_packages
+
 

@@ -8,7 +8,6 @@ body
       .navbar-header
         a.navbar-brand href="/"
           | Brew Club Membership
-          i.fa.fa-camera-retro
         button.navbar-toggle.mobile-menu type="button" data-toggle="collapse" data-target="#navbar-main"
           span.icon-bar
           span.icon-bar
@@ -36,7 +35,9 @@ body
               li
                 a tabindex="-1" href="#/" Item 6
           li
-            a href="" Help
+            a href=""
+              i.fa.fa-question-circle
+              | Help
 
         ul.nav.navbar-nav.navbar-right
 
@@ -45,4 +46,4 @@ body
     #banner.page-header
       .row
         = render 'layouts/messages'
-      = yield
+    = yield
